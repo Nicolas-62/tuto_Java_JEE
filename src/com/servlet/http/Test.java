@@ -37,7 +37,7 @@ public class Test extends HttpServlet {
 		request.setAttribute("liste", liste);
 		
 //		DateTime dt = new DateTime();
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( request, response );
+		this.getServletContext().getRequestDispatcher( "/test.jsp" ).forward( request, response );
 	}
 //	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.setContentType("text/html");

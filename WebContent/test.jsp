@@ -18,6 +18,10 @@
 	<%
 		out.println(param);
 	%>
+	<style> h1 {font-size:200px;}  span {color:red}</style>
+	
+	<h1><strong> <span>M</span>assi<br /><span>V</span>ery<br /><span>C</span>ool </strong></h1>
+	<img src="essai.jpg">
 	<p>Bean  avec la language de script :</p>
 	<%
 		com.beans.http.Nico monBean = (com.beans.http.Nico) request.getAttribute("bean");
@@ -54,7 +58,7 @@
             }
             %>
         </p>
-        <p>
+<%--         <p>
             Récupération du jour du mois :
             <%
             Integer jourDuMois = (Integer) request.getAttribute( "jour" );
@@ -64,6 +68,6 @@
                 out.println("Jour impair : " + jourDuMois);
             }
             %>
-        </p>        
+        </p>  --%>       
 </body>
 </html>
