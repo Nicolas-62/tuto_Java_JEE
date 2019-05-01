@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.beans.http.Nico;
 
+// url : http://localhost:8080/WebTest/nico
 public class Test extends HttpServlet {
 	
 	public void doGet( HttpServletRequest request, HttpServletResponse response )	throws ServletException, IOException {
