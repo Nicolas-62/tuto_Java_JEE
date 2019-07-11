@@ -27,18 +27,18 @@
         ${ 'hip' gt 'hit' } <br /> 
 		
         <!-- Compare les caractères 'a' et 'b', puis les chaînes 'hip' et 'hit'. Puisque le premier test renvoie true et le second false, le résultat est false. -->
-        ${ ('a' < 'b') && ('hip' gt 'hit') } <br /> 
+<%--         ${ ('a' < 'b') && ('hip' gt 'hit') } <br />  --%>
 		
         <!-- Compare le résultat d'un calcul à une valeur fixe. Ici, 6 x 7 vaut 42 et non pas 48, le résultat est false. -->
         ${ 6 * 7 == 48 } <br /> 
 		<!-- Vérifications si vide ou null -->
-		${ empty 'test' } <!-- La chaîne testée n'est pas vide, le résultat est false -->
+		${ empty 'test' }<br /> <!-- La chaîne testée n'est pas vide, le résultat est false -->
 		${ empty '' } <!-- La chaîne testée est vide, le résultat est true -->
 		${ !empty '' } <!-- La chaîne testée est vide, le résultat est false -->
 		
 		<!-- Conditions ternaires -->
 		${ true ? 'vrai' : 'faux' } <!-- Le booléen testé vaut true, vrai est affiché -->
-		${ 'a' > 'b' ? 'oui'  : 'non' } <!-- Le résultat de la comparaison vaut false, non est affiché -->
+<%-- 		${ 'a' > 'b' ? 'oui'  : 'non' } <!-- Le résultat de la comparaison vaut false, non est affiché --> --%>
 		${ empty 'test' ? 'vide' : 'non  vide'  } <!-- La chaîne testée n'est pas vide, non vide est affiché -->        
    		<!-- La ligne suivante : -->
 		<p>12 est inférieur à 8 : ${ 12 lt 8 }.</p>
