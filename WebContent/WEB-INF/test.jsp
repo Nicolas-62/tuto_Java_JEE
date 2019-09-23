@@ -1,4 +1,6 @@
+<%-- directives --%>	
 <%@ page import="java.util.List" %>
+<%-- défini dans l'entête HTTP l'encodage à utiliser --%>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -9,15 +11,48 @@
 
 <body>
 	<p>Ceci est une page générée depuis une JSP.</p>
+	<%-- code Java écrit dans une page c'est MAL ! --%>
+	
+	<%-- balise de déclaration --%>
+	<%! String chaine = "Salut les zéros.";  %>
+	
+	<%-- balise de script--%>	
+	<%-- resquest.getAttribute() renvoie un objet global de type Object --%>
 	<%
 		String atr = (String) request.getAttribute("message");
 		out.println(atr);
 		
 		String param = (String) request.getParameter("auteur");
 	%><p>Auteur :</p>
+	
 	<%
 		out.println(param);
 	%>
+	<%-- balise d'expression--%>
+	<%= "bip bip !" %>
+	<%-- directive include --%>
+	<%-- 'inclusion "statique", c'est parce qu'en utilisant cette directive pour inclure un fichier, 
+		l'inclusion est réalisée au moment de la compilation --%>
+	<%@ include file="test2.jsp" %>
+	<%--inclusion dynamiqe : inclusion réalisée après compilation
+	pb : les librairies de la page mère ne seront pas disponibles --%>
+	<jsp:include page="test2.jsp" />
+	<%-- Son équivalent en code Java  est : --%>
+	<% request.getRequestDispatcher( "test2.jsp" ).include( request, response ); %>
+	
+	<%-- L'action suivante récupère un bean de type Coyote et nommé "coyote" dans
+	la portée requête s'il existe, ou en crée un sinon. --%>
+	<jsp:useBean id="coyote" class="com.beans.http.Nico" scope="request" />
+	
+	<%-- Elle a le même effet que le code Java suivant : --%>
+	<% 
+	com.beans.http.Nico coyote2 = (com.beans.http.Nico) request.getAttribute( "coyote" ); 
+	if ( coyote2 == null ){
+	    coyote2 = new com.beans.http.Nico();
+	    request.setAttribute( "coyote2", coyote2 );
+	}
+	%>
+	
 	<style> h1 {font-size:200px;}  span {color:red}</style>
 	
 	<h1><strong> <span>M</span>assi<br /><span>V</span>ery<br /><span>C</span>ool </strong></h1>

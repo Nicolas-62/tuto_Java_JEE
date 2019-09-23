@@ -62,5 +62,14 @@
         <!-- Il est également possible d'utiliser un objet au lieu d'initialiser la clé souhaitée directement dans l'expression -->
         ${ desserts[element] }<br />
     </p>
+    <p>Les objets implicites EL sont de type map</p>
+    <p>Ex avec les paramètres transmis dans l'URL</p>
+	<%
+	String paramArticle = request.getParameter("article");
+	out.println( "Article : " + paramArticle );
+	%>
+	<p>Utilisation de l'objet de type Map<'String', 'String'> param :</p>
+	<P>paramValues est de type Map<'String', 'String[]'></P>
+	<p>Article : ${ param.article }</p>    
 </body>
 </html>

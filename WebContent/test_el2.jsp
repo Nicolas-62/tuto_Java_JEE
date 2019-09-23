@@ -29,6 +29,8 @@
 			} 
 		}
 		-->
+		<!-- protégé contre retour null, n'affiche rien si l'attribut nom n'a pas été initialisé -->
+		${ monBean.nom }
 		${ empty monBean.nom }<br />
 		${ monBean.nom=="lourdel" }<br />
 		${ !empty monBean.nom ? monBean.nom : "veuillez renseigner un nom" }<br />

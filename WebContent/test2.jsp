@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>Ceci est une page html pas gÃ©nÃ©rÃ©e</p>
+<p>Ceci est une page générée depuis une JSP.</p>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,6 @@
         <title>Test des expressions EL</title>
     </head>
     <body>
-    <p>
         <!-- Logiques sur des booléens -->
         ${ true && true } <br /> <!-- Affiche true -->
         ${ true && false } <br /> <!-- Affiche false -->
@@ -27,14 +27,17 @@
         ${ 'hip' gt 'hit' } <br /> 
 		
         <!-- Compare les caractères 'a' et 'b', puis les chaînes 'hip' et 'hit'. Puisque le premier test renvoie true et le second false, le résultat est false. -->
-<%--         ${ ('a' < 'b') && ('hip' gt 'hit') } <br />  --%>
+        ${ ('a' < 'b') && ('hip' gt 'hit') } <br />
 		
         <!-- Compare le résultat d'un calcul à une valeur fixe. Ici, 6 x 7 vaut 42 et non pas 48, le résultat est false. -->
         ${ 6 * 7 == 48 } <br /> 
 		<!-- Vérifications si vide ou null -->
-		${ empty 'test' }<br /> <!-- La chaîne testée n'est pas vide, le résultat est false -->
-		${ empty '' } <!-- La chaîne testée est vide, le résultat est true -->
-		${ !empty '' } <!-- La chaîne testée est vide, le résultat est false -->
+		${ empty 'test' }
+		 <!-- La chaîne testée n'est pas vide, le résultat est false --> 
+		${ empty '' } 
+		<!-- La chaîne testée est vide, le résultat est true -->
+		${ ! empty '' } 
+		<!-- La chaîne testée est vide, le résultat est false -->
 		
 		<!-- Conditions ternaires -->
 		${ true ? 'vrai' : 'faux' } <!-- Le booléen testé vaut true, vrai est affiché -->
@@ -45,6 +48,5 @@
 		
 		<!-- Sera rendue ainsi après interprétation de l'expression, 12 n'étant pas inférieur à 8 : -->
 		<p>12 est inférieur à 8 : false.</p>
-    </p>
     </body>
 </html>

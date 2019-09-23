@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <servlet>
-    <servlet-name>Test</servlet-name>
-    <servlet-class>com.servlet.http.Test</servlet-class>
-    <init-param>
-      <param-name>auteur</param-name>
-      <param-value>nlourdel</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Test</servlet-name>
-    <url-pattern>/nico</url-pattern>
-  </servlet-mapping>
+<!-- la valeur de l'option isELIgnored va dépendre de la version de l'API servlet
+ utiliséé par votre application :
+si la version est supérieure ou égale à 2.4, alors les expressions EL seront évaluées par défaut-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" version="3.0">
+	<servlet>
+		<servlet-name>Test</servlet-name>
+		<servlet-class>com.servlet.http.Test</servlet-class>
+		<init-param>
+			<param-name>auteur</param-name>
+			<param-value>nlourdel</param-value>
+		</init-param>
+		 <!-- permet de forcer le chargement de la servlet dès le démarrage du serveur.  -->
+		 <!-- Le numéro correspond à l'ordre de chargement des servlets -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Test</servlet-name>
+		<url-pattern>/nico</url-pattern>
+	</servlet-mapping>
 </web-app>

@@ -11,11 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.beans.http.Nico;
 
-// url : http://localhost:8080/WebTest/nico
+// url : http://localhost:8080/Tuto_Java_JEE/nico
+// HttpServlet est une classe abstraite qui implemente l'interface Servlet
 public class Test extends HttpServlet {
 	
+	// il existe trois méthode proposées pour traiter les requêtes :
+	// doGet(), doPost() et doHead()
+	// la méthode service() se charge de lire l'objet HttpServletRequest et de transmettre
+	// la requête HTTP à la méthode doXXX correspondante
 	public void doGet( HttpServletRequest request, HttpServletResponse response )	throws ServletException, IOException {
-		
+		/* definition de l'encodage dans l'entête HTTP, indique au navigateur quel encodage utiliser */
+		response.setCharacterEncoding( "ISO-8859-1" );
 		/* creation d'un message et d'un parametre de type GET */
 		String auteur = request.getParameter("auteur");
 		String message = "Salut gros naze !! par l'auteur : "+auteur;
@@ -38,7 +44,9 @@ public class Test extends HttpServlet {
 		request.setAttribute("liste", liste);
 		
 //		DateTime dt = new DateTime();
-		this.getServletContext().getRequestDispatcher( "/test.jsp" ).forward( request, response );
+		// La méthode forward() de l'objet RequestDispatcher permet depuis une servlet de 
+		// rediriger la paire requête/réponse HTTP vers une autre servlet ou vers une page JSP.		
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( request, response );
 	}
 //	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.setContentType("text/html");
